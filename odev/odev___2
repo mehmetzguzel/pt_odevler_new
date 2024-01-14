@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Araç türünü seçin (Otomobil/O, Kamyon/K, İş Makinası/I): ");
+        char aracTuru = Character.toUpperCase(scanner.next().charAt(0));
+
+        System.out.println("\n\nKalma süresini saat cinsinden girin: ");
+        int kalmaSuresi = scanner.nextInt();
+
+        double toplamUcret = hesaplaUcret(aracTuru, kalmaSuresi);
+
+        System.out.println("\n\nToplam çıkış ücreti: " + toplamUcret + " TL");
+
+        scanner.close();
+    }
+
+    static double hesaplaUcret(char aracTuru, int kalmaSuresi) {
+        double toplamUcret = 0;
+
+        if (kalmaSuresi <= 2) {
+            if (aracTuru == 'O') toplamUcret = 5;
+            else if (aracTuru == 'K') toplamUcret = 8;
+            else if (aracTuru == 'I') toplamUcret = 12;
+        } else {
+            if (aracTuru == 'O') toplamUcret = 5 + (kalmaSuresi - 2) / 10 * 1;
+            else if (aracTuru == 'K') toplamUcret = 8 + (kalmaSuresi - 2) / 10 * 2;
+            else if (aracTuru == 'I') toplamUcret = 12 + (kalmaSuresi - 2) / 8 * 3;
+        }
+
+        return toplamUcret;
+    }
+}
