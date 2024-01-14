@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class ToplamaProgrami {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Kaç adet sayı girmek istiyorsunuz? ");
+        int count = input.nextInt();
+
+        int sum = 0;
+
+        for (int i = 1; i <= count; i++) {
+            System.out.print("Sayı " + i + ": ");
+            int number = input.nextInt();
+            sum += number;
+        }
+
+        double average = (double) sum / count;
+
+        System.out.println("Girilen sayıların toplamı: " + sum);
+        System.out.println("Girilen sayıların ortalaması: " + average);
+    }
+}
