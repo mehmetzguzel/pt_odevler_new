@@ -1,0 +1,32 @@
+using System;
+
+class Or259
+{
+    static void Main()
+    {
+        string input, modifiedString = "";
+        int index;
+        char character;
+
+        Console.Write("Bir cümle giriniz:");
+        input = Console.ReadLine();
+
+        for (index = 0; index < input.Length; index++)
+        {
+            character = input[index];
+
+            if (character >= 'A' && character <= 'Z') // büyük harf ise
+            {
+                modifiedString += (char)(character + 32); // ASCII kodu tekrar karaktere dönüştürülüyor!
+            }
+            else
+            {
+                modifiedString += character;
+            }
+        }
+
+        Console.WriteLine(modifiedString);
+        Console.WriteLine("\n\nDevam etmek için bir tuşa basın...");
+        Console.ReadLine(); // Bekleme işlemi için bir ekstra ReadLine() çağrısı
+    }
+}
