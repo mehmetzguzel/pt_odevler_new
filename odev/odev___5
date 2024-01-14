@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+public class SumProgram {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Bir sayı girin: ");
+        int number = scanner.nextInt();
+
+        System.out.print("TEK'leri mi ÇİFT'leri mi toplamak istersiniz? (TEK/ÇİFT): ");
+        String choice = scanner.next().toUpperCase();
+
+        int sum = 0;
+
+        if (choice.equals("TEK")) {
+            for (int i = 1; i <= number; i += 2) {
+                sum += i;
+            }
+        } else if (choice.equals("ÇİFT")) {
+            for (int i = 2; i <= number; i += 2) {
+                sum += i;
+            }
+        } else {
+            System.out.println("Geçersiz seçim!");
+            return;
+        }
+
+        System.out.println("Toplam = " + sum);
+    }
+}
