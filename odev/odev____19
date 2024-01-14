@@ -1,0 +1,33 @@
+using System;
+
+namespace Ornek223
+{
+    class Program
+    {
+        public static void Main(string[] args)
+        {
+            Console.Write("İsim girin: ");
+            string name = Console.ReadLine();
+
+            char[] nameCharacters = name.ToCharArray();
+            bool[] isUsed = new bool[nameCharacters.Length];
+
+            Random random = new Random();
+
+            for (int index = 0; index < nameCharacters.Length; index++)
+            {
+                int randomNumber;
+                do
+                {
+                    randomNumber = random.Next(nameCharacters.Length);
+                } while (isUsed[randomNumber]);
+
+                isUsed[randomNumber] = true;
+                Console.Write(nameCharacters[randomNumber]);
+            }
+
+            Console.Write("\n\n\nDevam etmek için bir tuşa basın...");
+            Console.ReadKey(true);
+        }
+    }
+}
