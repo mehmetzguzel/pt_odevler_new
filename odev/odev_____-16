@@ -1,0 +1,45 @@
+using System;
+
+class SayiOkuma
+{
+    static void Main()
+    {
+        int sayi;
+        string okuma = "";
+        string[] birler = { "Bir", "İki", "Üç", "Dört", "Beş", "Altı", "Yedi", "Sekiz", "Dokuz" };
+        string[] onlar = { "On", "Yirmi", "Otuz", "Kırk", "Elli", "Altmış", "Yetmiş", "Seksen", "Doksan" };
+        string[] yuzler = { "", "Yüz", "İkiYüz", "ÜçYüz", "DörtYüz", "BeşYüz", "AltıYüz", "YediYüz", "SekizYüz", "DokuzYüz" };
+
+        Console.Write("Bir Sayı Giriniz (1-999): ");
+        sayi = Convert.ToInt32(Console.ReadLine());
+
+        if (sayi >= 1 && sayi <= 999)
+        {
+            if (sayi / 100 > 0)
+            {
+                okuma = yuzler[sayi / 100];
+                sayi %= 100;
+            }
+
+            if (sayi / 10 > 0)
+            {
+                okuma += onlar[sayi / 10 - 1];
+                sayi %= 10;
+            }
+
+            if (sayi > 0)
+            {
+                okuma += birler[sayi - 1];
+            }
+
+            Console.WriteLine(okuma);
+        }
+        else
+        {
+            Console.WriteLine("Geçersiz giriş!");
+        }
+
+        Console.Write("Devam etmek için bir tuşa basın...");
+        Console.ReadKey(true);
+    }
+}
