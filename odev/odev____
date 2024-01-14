@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Cinsiyeti girin (K/Kadın veya E/Erkek): ");
+        char cinsiyet = Character.toUpperCase(scanner.next().charAt(0));
+
+        System.out.println("\n\nBoy (cm) girin: ");
+        double boyCm = scanner.nextDouble();
+
+        System.out.println("\n\nKilo (kg) girin: ");
+        double kilo = scanner.nextDouble();
+
+        double idealKilo = hesaplaIdealKilo(cinsiyet, boyCm);
+
+        System.out.println("\n\nİdeal kilo: " + idealKilo + " kg");
+
+        if (kilo < idealKilo) {
+            System.out.println("Şu anda ideal kilonuzun altındasınız.");
+        } else if (kilo > idealKilo) {
+            System.out.println("Şu anda ideal kilonuzun üstündesiniz.");
+        } else {
+            System.out.println("Şu anda ideal kilodasınız.");
+        }
+
+        scanner.close();
+    }
+
+    static double hesaplaIdealKilo(char cinsiyet, double boyCm) {
+        double idealKilo = 0;
+
+        if (cinsiyet == 'K') {
+            idealKilo = 45.5 + 2.3 * ((boyCm / 2.54) - 60);
+        } else if (cinsiyet == 'E') {
+            idealKilo = 50 + 2.3 * ((boyCm / 2.54) - 60);
+        }
+
+        return idealKilo;
+    }
+}
