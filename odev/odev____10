@@ -1,0 +1,18 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        double[] burslar = { 150, 600, 700, 450, 850, 275, 950, 1500, 210, 368 };
+
+        foreach (double burs in burslar)
+        {
+            double yeniBurs = (burs < 500) ? burs * 1.1 + 50 : burs;
+            Console.WriteLine(yeniBurs);
+        }
+
+        Console.Write("DEVAM ETMEK İÇİN BİR TUŞA BASINIZ. . . ");
+        Console.ReadLine();
+    }
+}
