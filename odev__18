@@ -1,0 +1,32 @@
+using System;
+
+class Example223
+{
+    static void Main()
+    {
+        Console.Write("İsmi Giriniz: ");
+        string name = Console.ReadLine();
+
+        char[] characters = name.ToCharArray(); // String'i karakter dizisine çevirme
+
+        bool[] isUsed = new bool[characters.Length];
+        Random random = new Random();
+
+        Console.Write("Rastgele Karıştırılmış İsim: ");
+
+        for (int index = 0; index < characters.Length; index++)
+        {
+            int randomNumber;
+            do
+            {
+                randomNumber = random.Next(characters.Length);
+            } while (isUsed[randomNumber]);
+
+            isUsed[randomNumber] = true;
+            Console.Write(characters[randomNumber]);
+        }
+
+        Console.Write("\n\n\nDevam etmek için bir tuşa basın...");
+        Console.ReadLine(); // Bekleme işlemi için bir ekstra ReadLine() çağrısı
+    }
+}
